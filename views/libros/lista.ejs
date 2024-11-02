@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lista de Libros</title>
-</head>
-<body>
-    <h1>Libros</h1>
+<h1>Libros</h1>
+
+<div class="boton-crear">
     <a href="/temas/<%= temaId %>/libros/crear">Agregar Libro</a>
-    
+</div>
+
+<div class="lista-libros">
     <% libros.forEach(function(libro) { %>
-        <div>
+        <div class="libro">
             <h3><%= libro.titulo %></h3>
             <p>Autor: <%= libro.autor %></p>
-            <p>Votos: <%= libro.votos %></p>
-            <form action="/libros/<%= libro.id %>/votar" method="POST">
-                <button type="submit">Votar</button>
-            </form>
+            
+            <div class="votos">
+                <p>Votos: <%= libro.votos %></p>
+                <form action="/libros/<%= libro.id %>/votar" method="POST">
+                    <button type="submit"> Votar </button>
+                </form>
+            </div>
         </div>
     <% }) %>
-    
-    <a href="/temas">Volver a Temas</a>
-</body>
-</html>
+</div>
+
+<div class="volver">
+    <a href="/temas">Volver a categorías</a>
+</div>

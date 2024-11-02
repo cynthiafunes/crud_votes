@@ -1,8 +1,46 @@
 body {
     font-family: Arial;
-    margin: 20px;
+    margin: 0;
+    padding: 20px;
 }
 
-h1 {
-    color: #333;
+.menu {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.tema, .libro {
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.campo {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 5px;
+    width: 200px;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+.volver {
+    margin-top: 20px;
 }

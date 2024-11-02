@@ -11,10 +11,8 @@
             <p>Autor: <%= libro.autor %></p>
             
             <div class="votos">
-                <p>Votos: <%= libro.votos %></p>
-                <form action="/libros/<%= libro.id %>/votar" method="POST">
-                    <button type="submit"> Votar </button>
-                </form>
+                <p>Votos: <span id="votos-libro-<%= libro.id %>"><%= libro.votos %></span></p>
+                <button onclick="votarPorLibro('<%= libro.id %>')">Votar</button>
             </div>
 
             <div class="acciones">

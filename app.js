@@ -3,11 +3,14 @@ const sequelize = require('./config/database')
 const temasRoutes = require('./routes/temas')
 const librosRoutes = require('./routes/libros')
 const { Tema, Libro } = require('./models')
+const expressLayouts = require('express-ejs-layouts')
 
 const app = express();
 const PORT = 3000;
 
 app.set('view engine', 'ejs');
+app.use(expressLayouts)  
+app.set('layout', 'layouts/main') 
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));

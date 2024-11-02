@@ -10,10 +10,8 @@
             <h2><%= tema.nombre %></h2>
             
             <div class="votos">
-                <p>Votos: <%= tema.votos %></p>
-                <form action="/temas/<%= tema.id %>/votar" method="POST">
-                    <button type="submit"> Votar </button>
-                </form>
+                <p>Votos: <span id="votos-tema-<%= tema.id %>"><%= tema.votos %></span></p>
+                <button onclick="votarPorTema('<%= tema.id %>')">Votar</button>
             </div>
 
             <div class="acciones">

@@ -3,10 +3,12 @@ const { Tema } = require('../models')
 const temaController = {
     mostrarTemas: async function(req, res) {
         try {
-            const temas = await Tema.findAll()
+            const temas = await Tema.findAll({
+                order: [['votos', 'DESC']]
+            })
             res.render('temas/lista', { temas: temas })
         } catch (error) {
-            res.status(500).send('Error al mostrar los temas')
+            res.status(500).send('Error al cargar los temas')
         }
     },
 

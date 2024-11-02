@@ -4,7 +4,8 @@ const libroController = {
     mostrarLibros: async function(req, res) {
         try {
             const libros = await Libro.findAll({
-                where: { temaId: req.params.temaId }
+                where: { temaId: req.params.temaId },
+                order: [['votos', 'DESC']]
             })
             res.render('libros/lista', { 
                 libros: libros,

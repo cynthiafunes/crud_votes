@@ -1,10 +1,10 @@
-const tema = require('./tema')
-const libro = require('./libro')
+const Tema = require('./tema')
+const Libro = require('./libro')
 
-tema.hasMany(libro)
-libro.belongsTo(tema)
+Tema.hasMany(Libro)
+Libro.belongsTo(Tema)
 
 module.exports = {
-    tema,
-    libro
+    Tema,
+    Libro
 }

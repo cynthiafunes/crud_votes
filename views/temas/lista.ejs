@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Temas</title>
+</head>
+<body>
+    <h1>Temas</h1>
+    <a href="/temas/crear">Crear Nuevo Tema</a>
+    
+    <% temas.forEach(function(tema) { %>
+        <div>
+            <h3><%= tema.nombre %></h3>
+            <p>Votos: <%= tema.votos %></p>
+            <form action="/temas/<%= tema.id %>/votar" method="POST">
+                <button type="submit">Votar</button>
+            </form>
+            <a href="/temas/<%= tema.id %>/libros">Ver Libros</a>
+        </div>
+    <% }) %>
+</body>
+</html>

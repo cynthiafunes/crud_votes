@@ -39,6 +39,37 @@ const temaController = {
         } catch (error) {
             res.status(500).send('Error al votar por el tema')
         }
+    },
+
+    mostrarFormularioEditar: async function(req, res) {
+        try {
+            const tema = await Tema.findByPk(req.params.id)
+            res.render('temas/editar', { tema: tema })
+        } catch (error) {
+            res.status(500).send('Error al mostrar el formulario')
+        }
+    },
+
+    actualizarTema: async function(req, res) {
+        try {
+            const tema = await Tema.findByPk(req.params.id)
+            tema.nombre = req.body.nombre
+            await tema.save()
+            res.redirect('/temas')
+        } catch (error) {
+            res.status(500).send('Error al actualizar el tema')
+        }
+    },
+
+    borrarTema: async function(req, res) {
+        try {
+            await Tema.destroy({
+                where: { id: req.params.id }
+            })
+            res.redirect('/temas')
+        } catch (error) {
+            res.status(500).send('Error al borrar el tema')
+        }
     }
 }
 

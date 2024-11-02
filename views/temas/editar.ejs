@@ -1,0 +1,19 @@
+<h1>Editar Categoría</h1>
+
+<div class="formulario">
+    <form action="/temas/<%= tema.id %>/editar" method="POST">
+        <div class="campo">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" value="<%= tema.nombre %>" required>
+        </div>
+
+        <div class="botones">
+            <button type="submit">Guardar Cambios</button>
+            <a href="/temas">Cancelar</a>
+        </div>
+    </form>
+
+    <form action="/temas/<%= tema.id %>/borrar" method="POST">
+        <button type="submit" class="boton-borrar">Borrar Categoría</button>
+    </form>
+</div>

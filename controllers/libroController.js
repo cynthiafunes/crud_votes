@@ -46,6 +46,41 @@ const libroController = {
         } catch (error) {
             res.status(500).send('Error al votar por el libro')
         }
+    },
+
+    mostrarFormularioEditar: async function(req, res) {
+        try {
+            const libro = await Libro.findByPk(req.params.id)
+            res.render('libros/editar', { 
+                libro: libro,
+                temaId: libro.temaId 
+            })
+        } catch (error) {
+            res.status(500).send('Error al mostrar el formulario')
+        }
+    },
+
+    actualizarLibro: async function(req, res) {
+        try {
+            const libro = await Libro.findByPk(req.params.id)
+            libro.titulo = req.body.titulo
+            libro.autor = req.body.autor
+            await libro.save()
+            res.redirect(`/temas/${libro.temaId}/libros`)
+        } catch (error) {
+            res.status(500).send('Error al actualizar el libro')
+        }
+    },
+
+    borrarLibro: async function(req, res) {
+        try {
+            const libro = await Libro.findByPk(req.params.id)
+            const temaId = libro.temaId
+            await libro.destroy()
+            res.redirect(`/temas/${temaId}/libros`)
+        } catch (error) {
+            res.status(500).send('Error al borrar el libro')
+        }
     }
 }
 

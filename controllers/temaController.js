@@ -1,7 +1,7 @@
 const { Tema } = require('../models')
 
 const temaController = {
-    mostrarTemas: async function(req, res) {
+    mostrarTemas: async (req, res) => {
         try {
             const temas = await Tema.findAll({
                 order: [['votos', 'DESC']]
@@ -12,11 +12,11 @@ const temaController = {
         }
     },
 
-    mostrarFormularioCrear: function(req, res) {
+    mostrarFormularioCrear: (req, res) => {
         res.render('temas/crear')
     },
 
-    crearTema: async function(req, res) {
+    crearTema: async (req, res) => {
         try {
             const nuevoTema = {
                 nombre: req.body.nombre,
@@ -29,7 +29,7 @@ const temaController = {
         }
     },
 
-    votarTema: async function(req, res) {
+    votarTema: async (req, res) => {
         try {
             const tema = await Tema.findByPk(req.params.id)
             if (!tema) {
@@ -43,7 +43,7 @@ const temaController = {
         }
     },
 
-    mostrarFormularioEditar: async function(req, res) {
+    mostrarFormularioEditar: async (req, res) => {
         try {
             const tema = await Tema.findByPk(req.params.id)
             res.render('temas/editar', { tema: tema })
@@ -52,7 +52,7 @@ const temaController = {
         }
     },
 
-    actualizarTema: async function(req, res) {
+    actualizarTema: async (req, res) => {
         try {
             const tema = await Tema.findByPk(req.params.id)
             tema.nombre = req.body.nombre
@@ -63,7 +63,7 @@ const temaController = {
         }
     },
 
-    borrarTema: async function(req, res) {
+    borrarTema: async (req, res) => {
         try {
             await Tema.destroy({
                 where: { id: req.params.id }

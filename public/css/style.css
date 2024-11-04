@@ -4,16 +4,11 @@ body {
     padding: 20px;
 }
 
-.menu {
-    margin-bottom: 20px;
-}
-
 button {
     background-color: blue;
     color: white;
     padding: 5px 10px;
     border: none;
-    cursor: pointer;
 }
 
 .tema, .libro {
@@ -31,32 +26,15 @@ label {
     margin-bottom: 5px;
 }
 
-input {
-    padding: 5px;
-    width: 200px;
-}
-
 a {
     color: blue;
     text-decoration: none;
 }
 
-.volver {
-    margin-top: 20px;
-}
-
 .boton-borrar {
-    color: white;
-    padding: 5px 10px;
     margin-top: 10px;
 }
 
 .votos {
     margin: 10px 0;
-    padding: 5px;
-    background-color: #f0f0f0;
-}
-
-button:hover {
-    background-color: darkblue;
 }

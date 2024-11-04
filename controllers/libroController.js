@@ -1,7 +1,7 @@
 const { Libro } = require('../models')
 
 const libroController = {
-    mostrarLibros: async function(req, res) {
+    mostrarLibros: async (req, res) => {
         try {
             const libros = await Libro.findAll({
                 where: { temaId: req.params.temaId },
@@ -16,7 +16,7 @@ const libroController = {
         }
     },
 
-    mostrarFormularioCrear: function(req, res) {
+    mostrarFormularioCrear: (req, res) => {
         res.render('libros/crear', { temaId: req.params.temaId })
     },
 
@@ -35,7 +35,7 @@ const libroController = {
         }
     },
 
-    votarLibro: async function(req, res) {
+    votarLibro: async (req, res) => {
         try {
             const libro = await Libro.findByPk(req.params.id)
             if (!libro) {
@@ -49,7 +49,7 @@ const libroController = {
         }
     },
 
-    mostrarFormularioEditar: async function(req, res) {
+    mostrarFormularioEditar: async (req, res) => {
         try {
             const libro = await Libro.findByPk(req.params.id)
             res.render('libros/editar', { 
@@ -61,7 +61,7 @@ const libroController = {
         }
     },
 
-    actualizarLibro: async function(req, res) {
+    actualizarLibro: async (req, res) => {
         try {
             const libro = await Libro.findByPk(req.params.id)
             libro.titulo = req.body.titulo
@@ -73,7 +73,7 @@ const libroController = {
         }
     },
 
-    borrarLibro: async function(req, res) {
+    borrarLibro: async (req, res) => {
         try {
             const libro = await Libro.findByPk(req.params.id)
             const temaId = libro.temaId
